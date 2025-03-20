@@ -12,10 +12,33 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+    
+     
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce(Vector3.right * speed * Time.deltaTime);
+            rb.AddRelativeForce(new Vector3(0, 1, 0) * speed, ForceMode.Acceleration);
         }
-        rb.rotation *= Quaternion.AngleAxis(Input.GetAxisRaw("Horizontal") * RotationSpeed, new Vector3(0, 0, -1));
+        if (Input.GetKey(KeyCode.S))
+        {
+            rb.AddRelativeForce(new Vector3(0, -1, 0) * speed, ForceMode.Acceleration);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * RotationSpeed);
+            if (transform.rotation.y >= 175)
+            {
+                rb.AddRelativeForce(new Vector3(1, 0, 0) * speed, ForceMode.Acceleration);
+            }
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * RotationSpeed);
+            if (transform.rotation.y <= 5)
+            {
+                rb.AddRelativeForce(new Vector3(1, 0, 0) * speed, ForceMode.Acceleration);
+            }
+        }
+
+
     }
 }
