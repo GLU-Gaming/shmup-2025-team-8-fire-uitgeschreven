@@ -7,6 +7,7 @@ public class Shoot : MonoBehaviour
 
     [SerializeField] private GameObject bullet1;
     [SerializeField] private GameObject harpoon1;
+    [SerializeField] private GameObject spawnPoint;
 
     private GameObject bullet2;
     private GameObject harpoon2;
@@ -27,11 +28,9 @@ public class Shoot : MonoBehaviour
             if(timer >= 0.1f)
             {
 
-                bullet2 = Instantiate(bullet1);
-                bullet2.transform.position = gameObject.transform.position;
-                bullet2.transform.rotation = gameObject.transform.rotation;
+                bullet2 = Instantiate(bullet1, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 bulletBody = bullet2.GetComponent<Rigidbody>();
-                bulletBody.AddForce(new Vector3(-1*bulletSpeed, 0, 0));
+                bulletBody.AddForce(bullet2.transform.forward*bulletSpeed);
                 timer = 0;
             }
         }
