@@ -14,9 +14,9 @@ public class CameraFollowsPlayer : MonoBehaviour
     void Update()
     {
         cameraMiddle = transform.position;
-        if(player.transform.position.x > transform.position.x)
+        if (player.transform.position.x > transform.position.x)
         {
-        transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y + -speed * Time.deltaTime, transform.position.z);
+            transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y + -speed * Time.deltaTime, transform.position.z);
         }
     }
 }
