@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 1330875328}
   - component: {fileID: 1330875330}
   - component: {fileID: 1330875329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1329,6 +1329,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!1 &2008184881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008184882}
+  m_Layer: 9
+  m_Name: SpawnPointBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2008184882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008184881}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.67, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2010848414}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &2010848411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,7 +1374,8 @@ GameObject:
   - component: {fileID: 2010848415}
   - component: {fileID: 2010848416}
   - component: {fileID: 2010848417}
-  m_Layer: 0
+  - component: {fileID: 2010848418}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1414,6 +1446,7 @@ Transform:
   - {fileID: 1330875328}
   - {fileID: 2101535814}
   - {fileID: 2107817540}
+  - {fileID: 2008184882}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2010848415
@@ -1474,6 +1507,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 976449966}
   health: 100
+--- !u!114 &2010848418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010848411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b824c6f1ffd03a459791cb2a4f2ed24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet1: {fileID: 7416120902808272360, guid: 63518156113f6de4b84b6514db2740e0, type: 3}
+  harpoon1: {fileID: 5624467821702152597, guid: 0095db2915a0dc94994df2f0e6eb4026, type: 3}
+  spawnPoint: {fileID: 2008184881}
+  bulletSpeed: 20000
 --- !u!1 &2101535813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1534,7 @@ GameObject:
   - component: {fileID: 2101535814}
   - component: {fileID: 2101535816}
   - component: {fileID: 2101535815}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1620,7 @@ GameObject:
   - component: {fileID: 2107817540}
   - component: {fileID: 2107817542}
   - component: {fileID: 2107817541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

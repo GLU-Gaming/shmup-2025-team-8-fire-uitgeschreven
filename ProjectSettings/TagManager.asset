@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Border
   - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Projectiles
   - enemy
   - border
-  - 
+  - Player
   - 
   - 
   - 

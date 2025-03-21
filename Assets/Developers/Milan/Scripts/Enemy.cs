@@ -25,7 +25,14 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             game.RemoveEnemy(gameObject);
+            
         }
-        
+        if (collision.gameObject.CompareTag("Projectile"))
+            {
+            game.RemoveEnemy(gameObject);
+            Destroy(collision.gameObject);
+        }
+
+
     }
 }
