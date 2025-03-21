@@ -30,7 +30,7 @@ public class Shoot : MonoBehaviour
 
                 bullet2 = Instantiate(bullet1, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 bulletBody = bullet2.GetComponent<Rigidbody>();
-                bulletBody.AddForce(bullet2.transform.forward*bulletSpeed);
+                bulletBody.AddForce(bullet2.transform.forward*bulletSpeed*Time.deltaTime);
                 timer = 0;
             }
         }
