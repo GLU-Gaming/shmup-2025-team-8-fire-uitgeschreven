@@ -5,8 +5,10 @@ public class Enemy : MonoBehaviour
     private GameObject player; 
     private Rigidbody rb;
     [SerializeField] private float speed;
+    private GameManager game;
     void Start()
     {
+        game = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
     }
@@ -16,5 +18,14 @@ public class Enemy : MonoBehaviour
     {
         rb.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
         rb.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            game.RemoveEnemy(gameObject);
+        }
+        
     }
 }

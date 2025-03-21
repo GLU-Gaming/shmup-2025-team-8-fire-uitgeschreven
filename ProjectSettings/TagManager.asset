@@ -3,7 +3,6 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
   tags:
   - Border
   - Enemy
@@ -15,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Projectiles
-  - 
-  - 
+  - enemy
+  - border
   - 
   - 
   - 
