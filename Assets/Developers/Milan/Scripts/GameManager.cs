@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject gulper_Eel;
-    [SerializeField] GameObject fish;
     [SerializeField] GameObject spawnLocation;
     [SerializeField] List<GameObject> enemies;
     [SerializeField] List<GameObject> enemyPrefabs;
     [SerializeField] private int amountOfEnemys = 2;
+    [SerializeField] private GameObject enemySpawnLocation1;
+    [SerializeField] private GameObject enemySpawnLocation2;
+    private CameraFollowsPlayer cameraFollowsPlayer;
     private GameObject RandomEnemy;
     void Start()
     {
         StartWave();
+        cameraFollowsPlayer = FindFirstObjectByType<CameraFollowsPlayer>();
     }
 
     private void Update()
     {
         if (enemies.Count == 0)
         {
-            StartWave();
+            cameraFollowsPlayer.isWaveCleared = true;
         }
     }
 
@@ -28,9 +30,9 @@ public class GameManager : MonoBehaviour
     {
         RandomEnemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
         amountOfEnemys = Random.Range(1, 10);
-        spawnLocation.transform.position = new Vector3(17, Random.Range(-10, 10), 0);
+        spawnLocation.transform.position = new Vector3(enemySpawnLocation1.transform.position.x, Random.Range(enemySpawnLocation1.transform.position.y, enemySpawnLocation2.transform.position.y), 0);
     }
-    private void StartWave()
+    public void StartWave()
     {
         GameObject enemyObject;
         for (int i = 0; i < amountOfEnemys; i++)

@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float RotationSpeed = 10f;
     private Health healthScript;
+
+
+    [SerializeField] private float deeperPower;
     void Start()
     {
         healthScript = FindFirstObjectByType<Health>();
@@ -43,6 +46,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
      
+    }
+
+    public void GoDeeper()
+    {
+        if (transform.rotation.y == 0)
+        {
+            rb.AddRelativeForce(new Vector3(-deeperPower, deeperPower, 0f), ForceMode.Impulse);
+        }
+        if (transform.rotation.y == 180)
+        {
+            rb.AddRelativeForce(new Vector3(deeperPower, -deeperPower, 0f), ForceMode.Impulse);
+        }   
     }
     private void OnCollisionEnter(Collision collision)
     {

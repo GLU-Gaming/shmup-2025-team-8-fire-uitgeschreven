@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UIElements;
 
 public class CameraFollowsPlayer : MonoBehaviour
@@ -6,17 +7,39 @@ public class CameraFollowsPlayer : MonoBehaviour
     [SerializeField] private float speed = 10f;
     private Vector3 cameraMiddle;
     [SerializeField] private Transform player;
+    [SerializeField] private Light light;
+    private float lightIntensity = 20f;
+    public bool isWaveCleared = false;
+    [SerializeField] float Timer = 3;
+    private GameManager game;
+
+
+    [SerializeField] private GameObject backgroundCubes;
+    private PlayerMovement playerMovement;
+
     void Start()
     {
-        
+        game = FindFirstObjectByType<GameManager>();
+        playerMovement = FindFirstObjectByType<PlayerMovement>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        light.intensity = lightIntensity;
         cameraMiddle = transform.position;
-        if (player.transform.position.x > transform.position.x)
+        if (isWaveCleared == true)
         {
-            transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y + -speed * Time.deltaTime, transform.position.z);
+            Timer -= Time.deltaTime;
+            lightIntensity -= 0.01f;
+            playerMovement.GoDeeper();
+            backgroundCubes.transform.position = new Vector3(backgroundCubes.transform.position.x - speed * Time.deltaTime, backgroundCubes.transform.position.y - -speed * Time.deltaTime, backgroundCubes.transform.position.z);
+        if (Timer <= 0)
+        {
+            isWaveCleared = false;
+                Timer = 3;
+                game.StartWave();
+            }
+            
         }
     }
 }
