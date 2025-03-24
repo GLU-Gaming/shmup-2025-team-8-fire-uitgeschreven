@@ -472,7 +472,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 20
+  m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5658,7 +5658,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet1: {fileID: 7416120902808272360, guid: 63518156113f6de4b84b6514db2740e0, type: 3}
   harpoon1: {fileID: 5624467821702152597, guid: 0095db2915a0dc94994df2f0e6eb4026, type: 3}
-  spawnPoint: {fileID: 2008184881}
+  bulletSpawnPoint: {fileID: 0}
+  harpoonSpawnPoint: {fileID: 0}
   bulletSpeed: 20000
 --- !u!1 &2021646636
 GameObject:
