@@ -9,7 +9,7 @@ public class CameraFollowsPlayer : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Light light;
     private float lightIntensity = 20f;
-    public bool isWaveCleared = false;
+    
     [SerializeField] float Timer = 3;
     private GameManager game;
 
@@ -27,7 +27,7 @@ public class CameraFollowsPlayer : MonoBehaviour
     {
         light.intensity = lightIntensity;
         cameraMiddle = transform.position;
-        if (isWaveCleared == true)
+        if (game.isWaveCleared == true)
         {
             Timer -= Time.deltaTime;
             lightIntensity -= 0.01f;
@@ -35,7 +35,7 @@ public class CameraFollowsPlayer : MonoBehaviour
             backgroundCubes.transform.position = new Vector3(backgroundCubes.transform.position.x - speed * Time.deltaTime, backgroundCubes.transform.position.y - -speed * Time.deltaTime, backgroundCubes.transform.position.z);
         if (Timer <= 0)
         {
-            isWaveCleared = false;
+            game.isWaveCleared = false;
                 Timer = 3;
                 game.StartWave();
             }

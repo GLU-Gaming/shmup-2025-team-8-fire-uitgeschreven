@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int amountOfEnemys = 2;
     [SerializeField] private GameObject enemySpawnLocation1;
     [SerializeField] private GameObject enemySpawnLocation2;
+    [SerializeField] private GameObject pauseMenu;
+    private bool isGamePaused = false;
     private CameraFollowsPlayer cameraFollowsPlayer;
     private GameObject RandomEnemy;
+    public bool isWaveCleared = false;
     void Start()
     {
         StartWave();
@@ -22,7 +25,21 @@ public class GameManager : MonoBehaviour
     {
         if (enemies.Count == 0)
         {
-            cameraFollowsPlayer.isWaveCleared = true;
+            isWaveCleared = true;
+        }
+        if (isGamePaused == true)
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isGamePaused = !isGamePaused;
         }
     }
 
