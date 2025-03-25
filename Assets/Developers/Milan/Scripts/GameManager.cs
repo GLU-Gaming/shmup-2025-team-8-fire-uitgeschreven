@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private CameraFollowsPlayer cameraFollowsPlayer;
     private GameObject RandomEnemy;
     public bool isWaveCleared = false;
+    public int minEnemy = 1;
+    public int maxEnemy = 5;
     void Start()
     {
         StartWave();
@@ -26,7 +28,6 @@ public class GameManager : MonoBehaviour
         if (enemies.Count == 0)
         {
             isWaveCleared = true;
-
         }
         if (isGamePaused == true)
         {
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
     private void RandomizeEnemyAndSpawnpoint()
     {
         RandomEnemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-        amountOfEnemys = Random.Range(1, 10);
+        amountOfEnemys = Random.Range(minEnemy, maxEnemy);
         spawnLocation.transform.position = new Vector3(enemySpawnLocation1.transform.position.x, Random.Range(enemySpawnLocation1.transform.position.y, enemySpawnLocation2.transform.position.y), 0);
     }
     public void StartWave()

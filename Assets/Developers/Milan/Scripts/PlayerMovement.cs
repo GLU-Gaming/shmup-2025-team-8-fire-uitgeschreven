@@ -59,11 +59,5 @@ public class PlayerMovement : MonoBehaviour
             rb.AddRelativeForce(new Vector3(deeperPower, -deeperPower, 0f), ForceMode.Impulse);
         }   
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            healthScript.TakeDamage(10f);
-        }
-    }
+    
 }
