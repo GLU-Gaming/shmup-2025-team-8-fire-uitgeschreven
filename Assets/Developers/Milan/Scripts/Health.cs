@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -13,9 +14,14 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        
     }
     private void Update()
     {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Game Over");
+        }
         healthBar.fillAmount = health / 100f;
     }
 }
