@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         if (enemies.Count == 0)
         {
             isWaveCleared = true;
+
         }
         if (isGamePaused == true)
         {
