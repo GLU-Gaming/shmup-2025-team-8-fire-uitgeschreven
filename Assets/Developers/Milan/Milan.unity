@@ -6980,6 +6980,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 845523513935122, guid: c17ba2b0b6e1b4c498cef3a7d1396193, type: 3}
+      propertyPath: bulletShootCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 845523513935122, guid: c17ba2b0b6e1b4c498cef3a7d1396193, type: 3}
+      propertyPath: harpoonShootCooldown
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1020616796974628043, guid: c17ba2b0b6e1b4c498cef3a7d1396193, type: 3}
       propertyPath: healthBar
       value: 

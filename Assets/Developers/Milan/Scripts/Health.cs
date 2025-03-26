@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Game Over");
         }
