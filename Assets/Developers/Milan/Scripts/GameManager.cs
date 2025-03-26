@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,17 +18,37 @@ public class GameManager : MonoBehaviour
     public bool isWaveCleared = false;
     public int minEnemy = 1;
     public int maxEnemy = 5;
+    private int wavesLeft = 1;
+    private int wavesMax = 2;
+    [SerializeField] private TextMeshProUGUI waveText;
     void Start()
     {
         StartWave();
         cameraFollowsPlayer = FindFirstObjectByType<CameraFollowsPlayer>();
     }
 
+    public void ResetWaves()
+    {
+        wavesLeft = 1;
+        wavesMax++;
+    }
+
+
     private void Update()
     {
-        if (enemies.Count == 0)
+        int wavesLeftText = wavesLeft;
+        if (isWaveCleared == false)
+        {
+        waveText.text = "Wave: " + wavesLeftText + "/" + wavesMax;
+        }
+        if (enemies.Count == 0 && wavesLeft == wavesMax)
         {
             isWaveCleared = true;
+        }
+        else if(enemies.Count == 0 && wavesLeft <= wavesMax)
+        {
+            wavesLeft++;
+            StartWave();
         }
         if (isGamePaused == true)
         {

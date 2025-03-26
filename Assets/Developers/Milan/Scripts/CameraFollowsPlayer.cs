@@ -37,6 +37,7 @@ public class CameraFollowsPlayer : MonoBehaviour
         {
             game.isWaveCleared = false;
                 Timer = 3;
+                game.ResetWaves();
                 game.StartWave();
                 game.maxEnemy += 1;
                 game.minEnemy += 1;
