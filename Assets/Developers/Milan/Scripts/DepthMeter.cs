@@ -11,11 +11,20 @@ public class DepthMeter : MonoBehaviour
         game = FindFirstObjectByType<GameManager>();
     }
 
+    private void Update()
+    {
+        
+    }
     private void FixedUpdate()
     {
         if (game.isWaveCleared == true)
         {
-            //smallPlayer.transform.position = 
+            smallPlayer.transform.rotation = Quaternion.Slerp(smallPlayer.transform.rotation, Quaternion.Euler(0, 0, -90), 0.3f);
+            smallPlayer.transform.position = new Vector3(smallPlayer.transform.position.x, smallPlayer.transform.position.y - 0.0065f, smallPlayer.transform.position.z);
+        }
+        else
+        {
+            smallPlayer.transform.rotation = Quaternion.Slerp(smallPlayer.transform.rotation, Quaternion.Euler(0, 0, 0), 0.3f);
         }
     }
 }
