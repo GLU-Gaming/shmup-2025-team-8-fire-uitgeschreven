@@ -19,6 +19,7 @@ public class Shoot : MonoBehaviour
 
     //projectile speed and current weapon
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private float harpoonSpeed;
     [SerializeField] private float bulletShootCooldown;
     [SerializeField] private float harpoonShootCooldown;
     private float currentWeapon = 0;

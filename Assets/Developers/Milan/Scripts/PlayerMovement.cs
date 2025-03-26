@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] private float speed = 10f;
+    [SerializeField] public float speed = 30;
     [SerializeField] private float RotationSpeed = 10f;
     private Health healthScript;
 
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+   
     void FixedUpdate()
     {
 

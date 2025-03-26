@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private float speed;
     private GameManager game;
+    private EnemyHealth enemyHealthScript;
     private Health healthScript;
     [SerializeField] private float damage = 1;
     void Start()
@@ -13,6 +14,7 @@ public class Enemy : MonoBehaviour
         game = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject;
+        enemyHealthScript = GetComponent<EnemyHealth>();
         healthScript = FindFirstObjectByType<Health>();
     }
 
@@ -32,16 +34,15 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            healthScript.TakeDamage(damage);
             game.RemoveEnemy(gameObject);
             Destroy(gameObject);
+            healthScript.TakeDamage(damage);
 
         }
         if (collision.gameObject.CompareTag("Projectiles"))
             {
-            game.RemoveEnemy(gameObject);
+            enemyHealthScript.TakeDamage();
             Destroy(collision.gameObject);
-            Destroy(gameObject);
         }
     }
 }
