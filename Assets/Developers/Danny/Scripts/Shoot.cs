@@ -19,6 +19,8 @@ public class Shoot : MonoBehaviour
 
     //projectile speed and current weapon
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private float bulletShootCooldown;
+    [SerializeField] private float harpoonShootCooldown;
     private float currentWeapon = 0;
     //timer
     private float timer;
@@ -56,7 +58,7 @@ public class Shoot : MonoBehaviour
             if (currentWeapon == 0)
             {
                 //bullet cooldown
-                if (timer >= 0.1f)
+                if (timer >= bulletShootCooldown)
                 {
                     shootWeapon(bullet1, bullet2, bulletBody, bulletSpawnPoint);
                 }
@@ -65,7 +67,7 @@ public class Shoot : MonoBehaviour
             else if (currentWeapon == 1)
             {
                 //harpoon cooldown
-                if (timer >= 1f)
+                if (timer >= harpoonShootCooldown)
                 {
                     shootWeapon(harpoon1, harpoon2, harpoonBody, harpoonSpawnPoint);
                 }
