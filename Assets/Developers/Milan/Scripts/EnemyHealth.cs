@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int health = 3;
     [SerializeField] Image healthBar;
+    [SerializeField] float healthBarCalc;
     private GameManager game;
     void Start()
     {
@@ -13,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
-        healthBar.fillAmount = health / 3f;
+        healthBar.fillAmount = health / healthBarCalc;
     }
 
     public void TakeDamage()

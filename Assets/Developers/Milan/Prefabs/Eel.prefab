@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   healthBar: {fileID: 4196171022091029257}
+  healthBarCalc: 3
 --- !u!1001 &7213386163735192064
 PrefabInstance:
   m_ObjectHideFlags: 0
