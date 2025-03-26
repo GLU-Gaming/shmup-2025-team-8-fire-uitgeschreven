@@ -504,6 +504,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 845523513935122, guid: c17ba2b0b6e1b4c498cef3a7d1396193, type: 3}
+      propertyPath: harpoonSpeed
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 845523513935122, guid: c17ba2b0b6e1b4c498cef3a7d1396193, type: 3}
       propertyPath: bulletShootCooldown
       value: 0.2
       objectReference: {fileID: 0}
@@ -691,7 +695,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0936142, y: 1.0936142, z: 1.0936142}
+  m_LocalScale: {x: -2.1275442, y: -2.1275442, z: -2.1275442}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2010742238}
@@ -708,6 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb05d9a5ce7fdb4688862fb8a168798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seaMineRadius: {fileID: 2010742237}
 --- !u!135 &1498823564
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -870,6 +875,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2010742238}
+  - component: {fileID: 2010742239}
+  - component: {fileID: 2010742240}
   m_Layer: 0
   m_Name: Seamine
   m_TagString: Untagged
@@ -886,13 +893,46 @@ Transform:
   m_GameObject: {fileID: 2010742237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.65, y: 0, z: 0}
+  m_LocalPosition: {x: 9.37, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1498823562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2010742239
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010742237}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 9.076711
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2010742240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010742237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf913d89ba2b6c54985d1d5a226db8aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

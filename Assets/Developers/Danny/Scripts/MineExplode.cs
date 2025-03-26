@@ -15,6 +15,11 @@ public class MineExplode : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        if (timer >= 3)
+        {
+            timer = 0;
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
