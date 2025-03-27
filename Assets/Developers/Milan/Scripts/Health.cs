@@ -8,17 +8,17 @@ public class Health : MonoBehaviour
     [SerializeField] public float health;
     void Start()
     {
-        
+
     }
 
     public void TakeDamage(float amount)
     {
         health -= amount;
-        
+
     }
     private void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Game Over");
         }

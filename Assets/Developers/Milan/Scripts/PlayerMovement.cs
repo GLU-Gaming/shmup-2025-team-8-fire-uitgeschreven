@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] private float speed = 10f;
+    [SerializeField] public float speed = 30;
     [SerializeField] private float RotationSpeed = 10f;
     private Health healthScript;
 
@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
         healthScript = FindFirstObjectByType<Health>();
         rb = GetComponent<Rigidbody>();
     }
+
 
     void FixedUpdate()
     {
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-     
+
     }
 
     public void GoDeeper()
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         if (transform.rotation.y == 180)
         {
             rb.AddRelativeForce(new Vector3(deeperPower, -deeperPower, 0f), ForceMode.Impulse);
-        }   
+        }
     }
-    
+
 }

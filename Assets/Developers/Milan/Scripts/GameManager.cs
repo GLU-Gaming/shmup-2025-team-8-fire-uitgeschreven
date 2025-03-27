@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject enemySpawnLocation1;
     [SerializeField] private GameObject enemySpawnLocation2;
     [SerializeField] private GameObject pauseMenu;
+    public bool isBossFightStart = false;
     private bool isGamePaused = false;
     private CameraFollowsPlayer cameraFollowsPlayer;
     private GameObject RandomEnemy;
@@ -20,7 +21,10 @@ public class GameManager : MonoBehaviour
     public int maxEnemy = 5;
     private int wavesLeft = 1;
     private int wavesMax = 2;
+    [SerializeField] private GameObject miniPlayer;
     [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private GameObject bossSpawnLocation;
     void Start()
     {
         StartWave();
@@ -39,13 +43,13 @@ public class GameManager : MonoBehaviour
         int wavesLeftText = wavesLeft;
         if (isWaveCleared == false)
         {
-        waveText.text = "Wave: " + wavesLeftText + "/" + wavesMax;
+            waveText.text = "Wave: " + wavesLeftText + "/" + wavesMax;
         }
         if (enemies.Count == 0 && wavesLeft == wavesMax)
         {
             isWaveCleared = true;
         }
-        else if(enemies.Count == 0 && wavesLeft <= wavesMax)
+        else if (enemies.Count == 0 && wavesLeft <= wavesMax)
         {
             wavesLeft++;
             StartWave();
@@ -63,6 +67,15 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isGamePaused = !isGamePaused;
+        }
+        if (miniPlayer.transform.position.y <= 210)
+        {
+            isBossFightStart = true;
+        }
+        if (isBossFightStart == true)
+        {
+            //Instantiate(bossPrefab, bossSpawnLocation.transform.position, bossSpawnLocation.transform.rotation);
+            isBossFightStart = false;
         }
     }
 

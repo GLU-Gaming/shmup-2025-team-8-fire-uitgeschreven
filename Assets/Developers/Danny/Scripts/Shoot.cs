@@ -19,6 +19,7 @@ public class Shoot : MonoBehaviour
 
     //projectile speed and current weapon
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private float harpoonSpeed;
     [SerializeField] private float bulletShootCooldown;
     [SerializeField] private float harpoonShootCooldown;
     private float currentWeapon = 0;
@@ -60,7 +61,7 @@ public class Shoot : MonoBehaviour
                 //bullet cooldown
                 if (timer >= bulletShootCooldown)
                 {
-                    shootWeapon(bullet1, bullet2, bulletBody, bulletSpawnPoint);
+                    shootWeapon(bullet1, bullet2, bulletBody, bulletSpawnPoint, bulletSpeed);
                 }
             }
             //harpoon
@@ -69,17 +70,17 @@ public class Shoot : MonoBehaviour
                 //harpoon cooldown
                 if (timer >= harpoonShootCooldown)
                 {
-                    shootWeapon(harpoon1, harpoon2, harpoonBody, harpoonSpawnPoint);
+                    shootWeapon(harpoon1, harpoon2, harpoonBody, harpoonSpawnPoint, harpoonSpeed);
                 }
             }
         }
     }
     //function to fire the projectiles
-    private void shootWeapon(GameObject weaponPrefab, GameObject newWeapon, Rigidbody rigidbody, GameObject spawnpoint)
+    private void shootWeapon(GameObject weaponPrefab, GameObject newWeapon, Rigidbody rigidbody, GameObject spawnpoint, float projectileSpeed)
     {
         newWeapon = Instantiate(weaponPrefab, spawnpoint.transform.position, spawnpoint.transform.rotation);
         rigidbody = newWeapon.GetComponent<Rigidbody>();
-        rigidbody.AddForce(newWeapon.transform.forward * bulletSpeed);
+        rigidbody.AddForce(newWeapon.transform.forward * projectileSpeed);
         //reset timer
         timer = 0;
     }
