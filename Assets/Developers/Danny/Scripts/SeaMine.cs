@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class SeaMine : MonoBehaviour
 {
-    private float timer;
-
+    public bool hasExploded;
     [SerializeField] private GameObject seaMineRadius;
     private SphereCollider sphereCollider;
     void Start()
@@ -13,14 +12,11 @@ public class SeaMine : MonoBehaviour
     }
     void Update()
     {
-        timer += Time.deltaTime;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectiles"))
-        {
             sphereCollider.enabled = true;
+            hasExploded = true;
             Destroy(gameObject);
-        }
     }
 }
