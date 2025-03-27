@@ -252,8 +252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d09c54ca9b3bca4cab62e18c30addf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 2
   healthBar: {fileID: 8827181422853614649}
+  healthBarCalc: 2
 --- !u!1001 &2639287007741510960
 PrefabInstance:
   m_ObjectHideFlags: 0

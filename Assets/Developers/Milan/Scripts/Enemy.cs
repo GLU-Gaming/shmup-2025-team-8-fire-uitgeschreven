@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private GameObject player; 
+    private GameObject player;
     private Rigidbody rb;
     [SerializeField] private float speed;
     private GameManager game;
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         healthScript = FindFirstObjectByType<Health>();
     }
 
-  
+
     void Update()
     {
         //rb.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
 
         }
         if (collision.gameObject.CompareTag("Projectiles"))
-            {
+        {
             enemyHealthScript.TakeDamage();
             Destroy(collision.gameObject);
         }

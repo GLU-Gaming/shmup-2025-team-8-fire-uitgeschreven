@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-   
+
     void FixedUpdate()
     {
 
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-     
+
     }
 
     public void GoDeeper()
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         if (transform.rotation.y == 180)
         {
             rb.AddRelativeForce(new Vector3(deeperPower, -deeperPower, 0f), ForceMode.Impulse);
-        }   
+        }
     }
-    
+
 }
