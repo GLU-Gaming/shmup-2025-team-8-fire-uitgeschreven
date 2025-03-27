@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] int health = 3;
+    [SerializeField] public int health = 3;
     [SerializeField] Image healthBar;
     [SerializeField] float healthBarCalc;
     private GameManager game;
