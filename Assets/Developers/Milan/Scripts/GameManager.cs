@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private GameObject bossSpawnLocation;
+    private bool hasBossSpawned = false;
     void Start()
     {
         StartWave();
@@ -68,15 +69,20 @@ public class GameManager : MonoBehaviour
         {
             isGamePaused = !isGamePaused;
         }
-        if (miniPlayer.transform.position.y <= 210)
-        {
-            isBossFightStart = true;
-        }
-        if (isBossFightStart == true)
-        {
-            //Instantiate(bossPrefab, bossSpawnLocation.transform.position, bossSpawnLocation.transform.rotation);
-            isBossFightStart = false;
-        }
+        //Debug.Log(miniPlayer.transform.position.y);
+        //if (miniPlayer.transform.position.y <= 0.6809998f)
+        //{
+        //    if (hasBossSpawned == false)
+        //    {
+        //    isBossFightStart = true;
+        //        SpawnBoss();
+        //        hasBossSpawned = true;
+        //    }
+        //}
+    }
+    private void SpawnBoss()
+    {
+        Instantiate(bossPrefab, bossSpawnLocation.transform.position, bossSpawnLocation.transform.rotation);
     }
 
     private void RandomizeEnemyAndSpawnpoint()
