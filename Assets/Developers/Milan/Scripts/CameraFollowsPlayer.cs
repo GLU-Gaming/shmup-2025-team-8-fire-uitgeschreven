@@ -43,9 +43,12 @@ public class CameraFollowsPlayer : MonoBehaviour
         {
             Timer -= Time.deltaTime;
             lightIntensity -= 0.002f;
+            
+               
             playerMovement.GoDeeper();
+            
             backgroundCubes.transform.position = new Vector3(backgroundCubes.transform.position.x - speed * Time.deltaTime, backgroundCubes.transform.position.y - -speed * Time.deltaTime, backgroundCubes.transform.position.z);
-            if (Timer <= 0)
+            if (Timer <= 0 && game.hasBossSpawned == false)
             {
                 game.isWaveCleared = false;
                 Timer = 3;

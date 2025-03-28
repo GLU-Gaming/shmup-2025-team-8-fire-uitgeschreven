@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,22 +44,22 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         int wavesLeftText = wavesLeft;
-        if (isWaveCleared == false )
+        if (hasBossSpawned == false)
         {
-            waveText.text = "Wave: " + wavesLeftText + "/" + wavesMax;
-        }
-        else if (hasBossSpawned == true)
-        {
-            waveText.text = "Wave: ???";
-        }
-        if (enemies.Count == 0 && wavesLeft == wavesMax && hasBossSpawned == false)
-        {
-            isWaveCleared = true;
-        }
-        else if (enemies.Count == 0 && wavesLeft <= wavesMax)
-        {
-            wavesLeft++;
-            StartWave();
+            if (isWaveCleared == false)
+            {
+                waveText.text = "Wave: " + wavesLeftText + "/" + wavesMax;
+            }
+            
+            if (enemies.Count == 0 && wavesLeft == wavesMax && hasBossSpawned == false)
+            {
+                isWaveCleared = true;
+            }
+            else if (enemies.Count == 0 && wavesLeft <= wavesMax && hasBossSpawned == false)
+            {
+                wavesLeft++;
+                StartWave();
+            }
         }
         if (isGamePaused == true)
         {
@@ -74,21 +75,25 @@ public class GameManager : MonoBehaviour
         {
             isGamePaused = !isGamePaused;
         }
+
         if (miniPlayer.transform.position.y <= -2.939981f)
         {
 
+            waveText.text = "Wave: ???";
+            
             if (hasBossSpawned == false)
             {
-              
+                isWaveCleared = false;
                 SpawnBoss();
                 hasBossSpawned = true;
 
-            }  
         }
-
     }
+
+}
     private void SpawnBoss()
     {
+        SceneManager.LoadScene("Win Screen");
         Instantiate(bossPrefab, bossSpawnLocation.transform.position, bossSpawnLocation.transform.rotation);
     }
 
