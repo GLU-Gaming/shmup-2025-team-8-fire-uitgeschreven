@@ -76,8 +76,8 @@ public class GameManager : MonoBehaviour
             isGamePaused = !isGamePaused;
         }
 
-        if (miniPlayer.transform.position.y <= -2.939981f)
-        {
+        //if (miniPlayer.transform.position.y <= -2.939981f)
+        //{
 
             waveText.text = "Wave: ???";
             
@@ -87,13 +87,12 @@ public class GameManager : MonoBehaviour
                 SpawnBoss();
                 hasBossSpawned = true;
 
-        }
+        //}
     }
 
 }
     private void SpawnBoss()
     {
-        SceneManager.LoadScene("Win Screen");
         Instantiate(bossPrefab, bossSpawnLocation.transform.position, bossSpawnLocation.transform.rotation);
     }
 
@@ -106,15 +105,15 @@ public class GameManager : MonoBehaviour
     public void StartWave()
     {
         GameObject enemyObject;
-        for (int i = 0; i < amountOfEnemys; i++)
-        {
+        //for (int i = 0; i < amountOfEnemys; i++)
+        //{
 
-            RandomizeEnemyAndSpawnpoint();
-            enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
-            enemies.Add(enemyObject);
+        //    RandomizeEnemyAndSpawnpoint();
+        //    enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
+        //    enemies.Add(enemyObject);
 
 
-        }
+        //}
     }
 
     public void RemoveEnemy(GameObject enemy)

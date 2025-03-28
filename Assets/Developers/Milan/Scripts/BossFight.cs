@@ -6,14 +6,18 @@ public class BossFight : MonoBehaviour
 {
     [SerializeField] private GameObject miniPlayer;
     private GameManager game;
-private GameObject upperWall;
+    private Rigidbody rb;
+    private GameObject upperWall;
 private GameObject lowerWall;
     private bool goLeft = true;
+    private Health health;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         upperWall = GameObject.Find("UpperWall");
         lowerWall = GameObject.Find("LowerWall");
+        health = FindFirstObjectByType<Health>();
         game = FindFirstObjectByType<GameManager>();
     }
 
@@ -23,7 +27,7 @@ private GameObject lowerWall;
         upperWall.transform.position = new Vector3(upperWall.transform.position.x, 7.30f, upperWall.transform.position.z);
         lowerWall.transform.rotation = Quaternion.Slerp(lowerWall.transform.rotation, Quaternion.Euler(0, 0, 0), 0.03f);
         lowerWall.transform.position = new Vector3(lowerWall.transform.position.x, -5.4f, lowerWall.transform.position.z);
-        //3.3 -1.77
+    
         if (transform.position.x <= -20f)
         {
             goLeft = false;
@@ -35,11 +39,19 @@ private GameObject lowerWall;
 
         if (goLeft == true)
         {
-            transform.position = new Vector3(transform.position.x - 0.1f, 3.3f, transform.position.z);
+            rb.position = new Vector3(transform.position.x - 0.1f, 3.3f, transform.position.z);
         }
         else
         {
-            transform.position = new Vector3(transform.position.x + 0.1f, -1.77f, transform.position.z);
+           rb.position = new Vector3(transform.position.x + 0.1f, -1.77f, transform.position.z);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            health.TakeDamage(40);
         }
     }
 }
