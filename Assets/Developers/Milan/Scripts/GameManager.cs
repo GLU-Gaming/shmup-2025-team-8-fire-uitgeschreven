@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private GameObject bossSpawnLocation;
-    private bool hasBossSpawned = false;
+    public bool hasBossSpawned = false;
+
     void Start()
     {
         StartWave();
@@ -42,11 +43,15 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         int wavesLeftText = wavesLeft;
-        if (isWaveCleared == false)
+        if (isWaveCleared == false )
         {
             waveText.text = "Wave: " + wavesLeftText + "/" + wavesMax;
         }
-        if (enemies.Count == 0 && wavesLeft == wavesMax)
+        else if (hasBossSpawned == true)
+        {
+            waveText.text = "Wave: ???";
+        }
+        if (enemies.Count == 0 && wavesLeft == wavesMax && hasBossSpawned == false)
         {
             isWaveCleared = true;
         }
@@ -69,16 +74,18 @@ public class GameManager : MonoBehaviour
         {
             isGamePaused = !isGamePaused;
         }
-        //Debug.Log(miniPlayer.transform.position.y);
-        //if (miniPlayer.transform.position.y <= 0.6809998f)
-        //{
-        //    if (hasBossSpawned == false)
-        //    {
-        //    isBossFightStart = true;
-        //        SpawnBoss();
-        //        hasBossSpawned = true;
-        //    }
-        //}
+        if (miniPlayer.transform.position.y <= -2.939981f)
+        {
+
+            if (hasBossSpawned == false)
+            {
+              
+                SpawnBoss();
+                hasBossSpawned = true;
+
+            }  
+        }
+
     }
     private void SpawnBoss()
     {
@@ -96,9 +103,12 @@ public class GameManager : MonoBehaviour
         GameObject enemyObject;
         for (int i = 0; i < amountOfEnemys; i++)
         {
+
             RandomizeEnemyAndSpawnpoint();
             enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
             enemies.Add(enemyObject);
+
+
         }
     }
 

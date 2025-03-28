@@ -7,8 +7,8 @@ public class CameraFollowsPlayer : MonoBehaviour
     [SerializeField] private float speed = 10f;
     private Vector3 cameraMiddle;
     [SerializeField] private Transform player;
-    [SerializeField] private Light light;
-    private float lightIntensity = 20f;
+    [SerializeField] private Light directionalLight;
+    private float lightIntensity = 1f;
 
     [SerializeField] float Timer = 3;
     private GameManager game;
@@ -23,14 +23,26 @@ public class CameraFollowsPlayer : MonoBehaviour
         playerMovement = FindFirstObjectByType<PlayerMovement>();
     }
 
+#if UNITY_EDITOR
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            game.isWaveCleared = true;
+        }
+    }
+#endif
+
     void FixedUpdate()
     {
-        light.intensity = lightIntensity;
+
+        directionalLight.intensity = lightIntensity;
         cameraMiddle = transform.position;
         if (game.isWaveCleared == true)
         {
             Timer -= Time.deltaTime;
-            lightIntensity -= 0.01f;
+            lightIntensity -= 0.002f;
             playerMovement.GoDeeper();
             backgroundCubes.transform.position = new Vector3(backgroundCubes.transform.position.x - speed * Time.deltaTime, backgroundCubes.transform.position.y - -speed * Time.deltaTime, backgroundCubes.transform.position.z);
             if (Timer <= 0)

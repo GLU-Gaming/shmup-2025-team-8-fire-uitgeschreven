@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbff123d0de6934384d0b19d0ef1e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 35
   RotationSpeed: 100
   deeperPower: 0.3
 --- !u!114 &1304394932187653249
@@ -251,6 +251,9 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 8945919845183964331}
   harpoonSpawnPoint: {fileID: 8945919845183964331}
   bulletSpeed: 300
+  harpoonSpeed: 400
+  bulletShootCooldown: 0.2
+  harpoonShootCooldown: 1.5
 --- !u!1 &6091150914597949342
 GameObject:
   m_ObjectHideFlags: 0
