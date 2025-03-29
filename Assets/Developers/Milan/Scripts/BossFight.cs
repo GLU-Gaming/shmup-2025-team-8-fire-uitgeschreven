@@ -1,24 +1,26 @@
 using System.Net.Http.Headers;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class BossFight : MonoBehaviour
 {
-    [SerializeField] private GameObject miniPlayer;
     private GameManager game;
     private Rigidbody rb;
     private GameObject upperWall;
 private GameObject lowerWall;
     private bool goLeft = true;
-    private Health health;
+    private Health playerHealth;
+    private BossHealth bossHealth;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         upperWall = GameObject.Find("UpperWall");
         lowerWall = GameObject.Find("LowerWall");
-        health = FindFirstObjectByType<Health>();
+        playerHealth = FindFirstObjectByType<Health>();
         game = FindFirstObjectByType<GameManager>();
+        bossHealth = GetComponent<BossHealth>();
     }
 
     void Update()
@@ -37,13 +39,15 @@ private GameObject lowerWall;
             goLeft = true;
         }
 
-        if (goLeft == true)
+        if (goLeft == true && upperWall.transform.rotation == Quaternion.Euler(0, 0, 0))
         {
-            rb.position = new Vector3(transform.position.x - 0.1f, 3.3f, transform.position.z);
+            rb.position = new Vector3(transform.position.x - 0.35f, 3.3f, transform.position.z);
+            rb.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else
+        else if (goLeft == false && upperWall.transform.rotation == Quaternion.Euler(0, 0, 0))
         {
-           rb.position = new Vector3(transform.position.x + 0.1f, -1.77f, transform.position.z);
+           rb.position = new Vector3(transform.position.x + 0.35f, -1.77f, transform.position.z);
+           rb.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
@@ -51,7 +55,13 @@ private GameObject lowerWall;
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            health.TakeDamage(40);
+            playerHealth.TakeDamage(40);
+            bossHealth.TakeDamage(20);
+        }
+        if (collision.gameObject.CompareTag("Projectiles"))
+        {
+            bossHealth.TakeDamage(50);
+            Destroy(collision.gameObject);
         }
     }
 }

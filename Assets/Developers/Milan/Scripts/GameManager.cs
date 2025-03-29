@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private GameObject bossSpawnLocation;
+    public float celebrationTimer;
+    public bool isCelebrating = false;
     public bool hasBossSpawned = false;
 
     void Start()
@@ -76,8 +78,17 @@ public class GameManager : MonoBehaviour
             isGamePaused = !isGamePaused;
         }
 
-        //if (miniPlayer.transform.position.y <= -2.939981f)
-        //{
+        if (isCelebrating == true)
+        {
+            celebrationTimer -= Time.deltaTime;
+            if (celebrationTimer <= 0)
+            {
+                SceneManager.LoadScene("Win Screen");
+            }
+        }
+
+        if (miniPlayer.transform.position.y <= -2.939981f)
+        {
 
             waveText.text = "Wave: ???";
             
@@ -87,8 +98,8 @@ public class GameManager : MonoBehaviour
                 SpawnBoss();
                 hasBossSpawned = true;
 
-        //}
-    }
+            }
+        }
 
 }
     private void SpawnBoss()
@@ -105,15 +116,15 @@ public class GameManager : MonoBehaviour
     public void StartWave()
     {
         GameObject enemyObject;
-        //for (int i = 0; i < amountOfEnemys; i++)
-        //{
+        for (int i = 0; i < amountOfEnemys; i++)
+        {
 
-        //    RandomizeEnemyAndSpawnpoint();
-        //    enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
-        //    enemies.Add(enemyObject);
+            RandomizeEnemyAndSpawnpoint();
+            enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
+            enemies.Add(enemyObject);
 
 
-        //}
+        }
     }
 
     public void RemoveEnemy(GameObject enemy)
