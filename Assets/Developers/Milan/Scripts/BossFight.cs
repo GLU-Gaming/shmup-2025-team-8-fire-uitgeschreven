@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BossFight : MonoBehaviour
 {
-    private GameManager game;
+    private GameObject canvas;
     private Rigidbody rb;
     private GameObject upperWall;
 private GameObject lowerWall;
@@ -19,8 +19,9 @@ private GameObject lowerWall;
         upperWall = GameObject.Find("UpperWall");
         lowerWall = GameObject.Find("LowerWall");
         playerHealth = FindFirstObjectByType<Health>();
-        game = FindFirstObjectByType<GameManager>();
+        canvas = GameObject.Find("Boss health Canvas");
         bossHealth = GetComponent<BossHealth>();
+        canvas.SetActive(true);
     }
 
     void Update()
