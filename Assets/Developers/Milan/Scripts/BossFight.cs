@@ -1,14 +1,10 @@
-using System.Net.Http.Headers;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class BossFight : MonoBehaviour
 {
-    private GameObject canvas;
     private Rigidbody rb;
     private GameObject upperWall;
-private GameObject lowerWall;
+    private GameObject lowerWall;
     private bool goLeft = true;
     private Health playerHealth;
     private BossHealth bossHealth;
@@ -19,9 +15,7 @@ private GameObject lowerWall;
         upperWall = GameObject.Find("UpperWall");
         lowerWall = GameObject.Find("LowerWall");
         playerHealth = FindFirstObjectByType<Health>();
-        canvas = GameObject.Find("Boss health Canvas");
         bossHealth = GetComponent<BossHealth>();
-        canvas.SetActive(true);
     }
 
     void Update()
@@ -30,7 +24,7 @@ private GameObject lowerWall;
         upperWall.transform.position = new Vector3(upperWall.transform.position.x, 7.30f, upperWall.transform.position.z);
         lowerWall.transform.rotation = Quaternion.Slerp(lowerWall.transform.rotation, Quaternion.Euler(0, 0, 0), 0.03f);
         lowerWall.transform.position = new Vector3(lowerWall.transform.position.x, -5.4f, lowerWall.transform.position.z);
-    
+
         if (transform.position.x <= -20f)
         {
             goLeft = false;
@@ -47,8 +41,8 @@ private GameObject lowerWall;
         }
         else if (goLeft == false && upperWall.transform.rotation == Quaternion.Euler(0, 0, 0))
         {
-           rb.position = new Vector3(transform.position.x + 0.35f, -1.77f, transform.position.z);
-           rb.rotation = Quaternion.Euler(0, 180, 0);
+            rb.position = new Vector3(transform.position.x + 0.35f, -1.77f, transform.position.z);
+            rb.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 

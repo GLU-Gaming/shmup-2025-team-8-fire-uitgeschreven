@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
@@ -23,10 +22,12 @@ public class BossHealth : MonoBehaviour
     {
         if (health <= 0)
         {
-          Destroy(gameObject);
-          game.isCelebrating = true;
-          game.celebrationTimer = 3f;
-        }
+            Destroy(gameObject);
+            game.isCelebrating = true;
+            game.celebrationTimer = 3f;
+            {
 
+            }
+        }
     }
 }

@@ -2512,14 +2512,15 @@ MonoBehaviour:
   enemySpawnLocation1: {fileID: 1553703603}
   enemySpawnLocation2: {fileID: 878859715}
   pauseMenu: {fileID: 972193646}
-  isBossFightStart: 0
-  isWaveCleared: 0
-  minEnemy: 1
-  maxEnemy: 5
   miniPlayer: {fileID: 6828212476677489971}
   waveText: {fileID: 1996503718}
   bossPrefab: {fileID: 555234524352026136, guid: fd9bc54291daca74e935684165f279ba, type: 3}
   bossSpawnLocation: {fileID: 351128613}
+  bossHealthbar: {fileID: 2671791571989266854}
+  isBossFightStart: 0
+  isWaveCleared: 0
+  minEnemy: 1
+  maxEnemy: 5
   celebrationTimer: 0
   isCelebrating: 0
   hasBossSpawned: 0
@@ -6783,15 +6784,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961629855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.7428412}
+  m_LocalScale: {x: 0.51546395, y: 0.51546395, z: 0.51546395}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6261772226414968606}
+  m_Father: {fileID: 499874112481020803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -83, y: -315}
+  m_AnchoredPosition: {x: -96.90721, y: 392.268}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1961629857
@@ -7565,6 +7566,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5242216787867384083}
+  - {fileID: 1961629856}
   m_Father: {fileID: 6261772226414968606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7789,7 +7791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3247036532855670642
 GameObject:
   m_ObjectHideFlags: 0
@@ -7931,7 +7933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5933437784840421694
 Transform:
   m_ObjectHideFlags: 0
@@ -7986,7 +7988,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 499874112481020803}
-  - {fileID: 1961629856}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
