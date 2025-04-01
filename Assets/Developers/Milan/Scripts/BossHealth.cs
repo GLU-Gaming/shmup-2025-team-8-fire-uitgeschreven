@@ -5,7 +5,7 @@ public class BossHealth : MonoBehaviour
 {
     private Image healthBar;
     private GameManager game;
-    [SerializeField] private float health;
+    [SerializeField] public float health;
     void Start()
     {
         game = FindFirstObjectByType<GameManager>();
@@ -15,7 +15,7 @@ public class BossHealth : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        healthBar.fillAmount = health / 1000f;
+        healthBar.fillAmount = health / 5000f;
 
     }
     private void Update()
@@ -25,9 +25,7 @@ public class BossHealth : MonoBehaviour
             Destroy(gameObject);
             game.isCelebrating = true;
             game.celebrationTimer = 3f;
-            {
 
-            }
         }
     }
 }
