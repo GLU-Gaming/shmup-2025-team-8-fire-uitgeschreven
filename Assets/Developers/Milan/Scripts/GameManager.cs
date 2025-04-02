@@ -1,7 +1,7 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,19 +12,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject enemySpawnLocation1;
     [SerializeField] private GameObject enemySpawnLocation2;
     [SerializeField] private GameObject pauseMenu;
-    public bool isBossFightStart = false;
-    private bool isGamePaused = false;
-    private CameraFollowsPlayer cameraFollowsPlayer;
-    private GameObject RandomEnemy;
-    public bool isWaveCleared = false;
-    public int minEnemy = 1;
-    public int maxEnemy = 5;
-    private int wavesLeft = 1;
-    private int wavesMax = 2;
     [SerializeField] private GameObject miniPlayer;
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private GameObject bossSpawnLocation;
+    [SerializeField] private GameObject bossHealthbar;
+    private int wavesLeft = 1;
+    private bool isGamePaused = false;
+    private CameraFollowsPlayer cameraFollowsPlayer;
+    private GameObject RandomEnemy;
+    private int wavesMax = 2;
+    public bool isBossFightStart = false;
+    public bool isWaveCleared = false;
+    public int minEnemy = 1;
+    public int maxEnemy = 5;
+    public float celebrationTimer;
+    public bool isCelebrating = false;
+    public bool hasBossSpawned = false;
+
     void Start()
     {
         StartWave();
@@ -41,18 +46,22 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         int wavesLeftText = wavesLeft;
-        if (isWaveCleared == false)
+        if (hasBossSpawned == false)
         {
-            waveText.text = "Wave: " + wavesLeftText + "/" + wavesMax;
-        }
-        if (enemies.Count == 0 && wavesLeft == wavesMax)
-        {
-            isWaveCleared = true;
-        }
-        else if (enemies.Count == 0 && wavesLeft <= wavesMax)
-        {
-            wavesLeft++;
-            StartWave();
+            if (isWaveCleared == false)
+            {
+                waveText.text = "Wave: " + wavesLeftText + "/" + wavesMax;
+            }
+
+            if (enemies.Count == 0 && wavesLeft == wavesMax && hasBossSpawned == false)
+            {
+                isWaveCleared = true;
+            }
+            else if (enemies.Count == 0 && wavesLeft <= wavesMax && hasBossSpawned == false)
+            {
+                wavesLeft++;
+                StartWave();
+            }
         }
         if (isGamePaused == true)
         {
@@ -68,15 +77,34 @@ public class GameManager : MonoBehaviour
         {
             isGamePaused = !isGamePaused;
         }
-        if (miniPlayer.transform.position.y <= 210)
+
+        if (isCelebrating == true)
         {
-            isBossFightStart = true;
+            celebrationTimer -= Time.deltaTime;
+            if (celebrationTimer <= 0)
+            {
+                SceneManager.LoadScene("Win Screen");
+            }
         }
-        if (isBossFightStart == true)
+
+        if (miniPlayer.transform.position.y <= -2.939981f)
         {
-            //Instantiate(bossPrefab, bossSpawnLocation.transform.position, bossSpawnLocation.transform.rotation);
-            isBossFightStart = false;
+            bossHealthbar.SetActive(true);
+            waveText.text = "Wave: ???";
+
+            if (hasBossSpawned == false)
+            {
+                isWaveCleared = false;
+                SpawnBoss();
+                hasBossSpawned = true;
+
+            }
         }
+
+    }
+    private void SpawnBoss()
+    {
+        Instantiate(bossPrefab, bossSpawnLocation.transform.position, bossSpawnLocation.transform.rotation);
     }
 
     private void RandomizeEnemyAndSpawnpoint()
@@ -90,9 +118,12 @@ public class GameManager : MonoBehaviour
         GameObject enemyObject;
         for (int i = 0; i < amountOfEnemys; i++)
         {
+
             RandomizeEnemyAndSpawnpoint();
             enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
             enemies.Add(enemyObject);
+
+
         }
     }
 

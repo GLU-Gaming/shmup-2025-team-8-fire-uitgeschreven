@@ -7,7 +7,7 @@ public class Projectiles : MonoBehaviour
     private void FixedUpdate()
     {
         timer += Time.deltaTime;
-        if(timer > 2)
+        if (timer > 2)
         {
 
             Destroy(gameObject);
@@ -15,14 +15,7 @@ public class Projectiles : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Border"))
-        {
 
-        }
-        else 
-        {
-           // Destroy(collision.gameObject);
-        }
         Destroy(gameObject);
     }
 }
