@@ -2413,6 +2413,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 5639283727915660446, guid: c150d37ca20fddb44b5baf92f14fb5e8, type: 3}
   - {fileID: 5639283727915660446, guid: 4a25472395aeee04983490b089eff3ad, type: 3}
+  - {fileID: 5639283727915660446, guid: deb6062d46269d84ba171efb6170817c, type: 3}
   amountOfEnemys: 1
   enemySpawnLocation1: {fileID: 1553703603}
   enemySpawnLocation2: {fileID: 878859715}
@@ -7238,7 +7239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &2734761480259183965
 MeshRenderer:
   m_ObjectHideFlags: 0
