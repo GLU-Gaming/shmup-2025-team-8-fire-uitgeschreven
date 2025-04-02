@@ -35,7 +35,10 @@ public class GameManager : MonoBehaviour
         StartWave();
         cameraFollowsPlayer = FindFirstObjectByType<CameraFollowsPlayer>();
     }
-
+    public void PauseGame()
+    {
+        isGamePaused = !isGamePaused;
+    }
     public void ResetWaves()
     {
         wavesLeft = 1;
@@ -87,18 +90,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (miniPlayer.transform.position.y <= -2.939981f)
+        //if (miniPlayer.transform.position.y <= -2.939981f)
+        //{
+        bossHealthbar.SetActive(true);
+        waveText.text = "Wave: ???";
+
+        if (hasBossSpawned == false)
         {
-            bossHealthbar.SetActive(true);
-            waveText.text = "Wave: ???";
+            isWaveCleared = false;
+            SpawnBoss();
+            hasBossSpawned = true;
 
-            if (hasBossSpawned == false)
-            {
-                isWaveCleared = false;
-                SpawnBoss();
-                hasBossSpawned = true;
-
-            }
+            //}
         }
 
     }
