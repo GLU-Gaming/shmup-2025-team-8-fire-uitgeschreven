@@ -11,13 +11,16 @@ public class PickupThingies : MonoBehaviour
         movementScript = FindFirstObjectByType<PlayerMovement>();
         shootScript = FindFirstObjectByType<Shoot>();
     }
-    protected virtual void Skibidi()
+    virtual protected void PickUp()
     {
-
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Skibidi();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PickUp();
+        }
     }
 }

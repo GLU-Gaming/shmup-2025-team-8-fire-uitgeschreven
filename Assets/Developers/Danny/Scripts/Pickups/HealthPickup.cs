@@ -3,16 +3,10 @@ using UnityEngine;
 
 public class HealthPickup : PickupThingies
 {
-    void Start()
-    {
-
-    }
-    void Update()
-    {
-
-    }
-    override protected void Skibidi()
+    override protected void PickUp()
     {
         healthScript.health += 25;
+        base.PickUp();
+        Destroy(gameObject);
     }
 }

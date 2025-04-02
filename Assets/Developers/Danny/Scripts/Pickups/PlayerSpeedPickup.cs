@@ -1,16 +1,24 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerSpeed : PickupThingies
+public class PlayerSpeedPickup : PickupThingies
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private float timer;
+    private bool pickedUp = false;
+    private void FixedUpdate()
     {
-        
+        timer += Time.deltaTime;
+        if (timer > 10 && pickedUp == true)
+        {
+            movementScript.speed -= 25;
+            Destroy(gameObject);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    override protected void PickUp()
     {
-        
+        timer = 0;
+        pickedUp = true;
+        movementScript.speed += 25;
+        base.PickUp();
     }
 }
