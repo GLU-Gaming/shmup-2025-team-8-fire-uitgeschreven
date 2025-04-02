@@ -5,6 +5,9 @@ public class PickupThingies : MonoBehaviour
     protected Health healthScript;
     protected PlayerMovement movementScript;
     protected Shoot shootScript;
+
+
+    protected bool pickedUp = false;
     private void Start()
     {
         healthScript = FindAnyObjectByType<Health>();
@@ -20,7 +23,10 @@ public class PickupThingies : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+
+            pickedUp = true;
             PickUp();
+
         }
     }
 }
