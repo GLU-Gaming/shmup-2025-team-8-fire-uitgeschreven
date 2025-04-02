@@ -1,6 +1,5 @@
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class CameraFollowsPlayer : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class CameraFollowsPlayer : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Light directionalLight;
     private float lightIntensity = 1f;
-
+    [SerializeField] private Image background;
     [SerializeField] float Timer = 3;
     private GameManager game;
 
@@ -43,10 +42,11 @@ public class CameraFollowsPlayer : MonoBehaviour
         {
             Timer -= Time.deltaTime;
             lightIntensity -= 0.002f;
-            
-               
+            background.color = new Color(background.color.r - 0.001f, background.color.g - 0.001f, background.color.b - 0.001f, background.color.a);
+
+
             playerMovement.GoDeeper();
-            
+
             backgroundCubes.transform.position = new Vector3(backgroundCubes.transform.position.x - speed * Time.deltaTime, backgroundCubes.transform.position.y - -speed * Time.deltaTime, backgroundCubes.transform.position.z);
             if (Timer <= 0 && game.hasBossSpawned == false)
             {
