@@ -90,18 +90,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //if (miniPlayer.transform.position.y <= -2.939981f)
-        //{
-        bossHealthbar.SetActive(true);
-        waveText.text = "Wave: ???";
-
-        if (hasBossSpawned == false)
+        if (miniPlayer.transform.position.y <= -2.939981f)
         {
-            isWaveCleared = false;
-            SpawnBoss();
-            hasBossSpawned = true;
+            bossHealthbar.SetActive(true);
+            waveText.text = "Wave: ???";
 
-            //}
+            if (hasBossSpawned == false)
+            {
+                isWaveCleared = false;
+                SpawnBoss();
+                hasBossSpawned = true;
+
+            }
         }
 
     }

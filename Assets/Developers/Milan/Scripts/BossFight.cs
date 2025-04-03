@@ -15,6 +15,12 @@ public class BossFight : MonoBehaviour
     private MeshRenderer meshRenderer;
     [SerializeField] private GameObject projectile;
     float cooldown = 1;
+    [SerializeField] private GameObject stage3Location1;
+    [SerializeField] private GameObject stage3Location2;
+    [SerializeField] private GameObject stage3Location3;
+    float randomX;
+    private bool isDown = true;
+    bool isWaiting = false;
 
     void Start()
     {
@@ -84,15 +90,57 @@ public class BossFight : MonoBehaviour
                 bulletClone.GetComponent<Rigidbody>().linearVelocity = (player.transform.position - transform.position).normalized * 10;
                 cooldown = 1;
             }
+            if (transform.position.y <= -2.05f)
+            {
+                isDown = true;
+            }
+            if (transform.position.y >= 4.1f)
+            {
+                isDown = false;
+            }
+            if (isDown == true)
+            {
+                rb.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 4.40f, 0), 0.03f);
+            }
+            else
+            {
+                rb.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -2.44f, 0), 0.03f);
+            }
+
+            if (bossHealth.health <= 2500)
+            {
+                NextStage();
+            }
 
         }
 
         if (stage == 3)
         {
             meshRenderer.material = materials[2];
+
+            if (transform.position.y <= -2.25f)
+            {
+                isDown = true;
+            }
+            if (transform.position.y >= 4.23f)
+            {
+                isDown = false;
+            }
+            if (isDown == true)
+            {
+                rb.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x, 4.40f, 0), 0.03f);
+            }
+            else
+            {
+                rb.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, -2.44f, 0), 0.03f);
+            }
         }
 
+
+
+
     }
+
 
 
     private void NextStage()
