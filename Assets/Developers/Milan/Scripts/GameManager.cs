@@ -89,19 +89,18 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("Win Screen");
             }
         }
+        //if (miniPlayer.transform.position.y <= -2.81135)
+        //{
+        bossHealthbar.SetActive(true);
+        waveText.text = "Wave: ???";
 
-        if (miniPlayer.transform.position.y <= -2.939981f)
+        if (hasBossSpawned == false)
         {
-            bossHealthbar.SetActive(true);
-            waveText.text = "Wave: ???";
+            isWaveCleared = false;
+            SpawnBoss();
+            hasBossSpawned = true;
 
-            if (hasBossSpawned == false)
-            {
-                isWaveCleared = false;
-                SpawnBoss();
-                hasBossSpawned = true;
-
-            }
+            //}
         }
 
     }
@@ -118,16 +117,16 @@ public class GameManager : MonoBehaviour
     }
     public void StartWave()
     {
-        GameObject enemyObject;
-        for (int i = 0; i < amountOfEnemys; i++)
-        {
+        //GameObject enemyObject;
+        //for (int i = 0; i < amountOfEnemys; i++)
+        //{
 
-            RandomizeEnemyAndSpawnpoint();
-            enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
-            enemies.Add(enemyObject);
+        //    RandomizeEnemyAndSpawnpoint();
+        //    enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
+        //    enemies.Add(enemyObject);
 
 
-        }
+        //}
     }
 
     public void RemoveEnemy(GameObject enemy)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4036343906232517336}
   - component: {fileID: 5405043921501587705}
   - component: {fileID: 1808008448334653639}
-  - component: {fileID: 3054798914622801920}
+  - component: {fileID: -6736037228669767674}
   m_Layer: 11
   m_Name: Bullet
   m_TagString: Projectiles
@@ -137,7 +137,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3054798914622801920
+--- !u!114 &-6736037228669767674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5639283727915660446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f940a9ce8968f684aa36f9aeb8e19fcf, type: 3}
+  m_Script: {fileID: 11500000, guid: bf72bcfbd195c164498954fe4fa745dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 40

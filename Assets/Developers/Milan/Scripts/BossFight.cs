@@ -15,9 +15,6 @@ public class BossFight : MonoBehaviour
     private MeshRenderer meshRenderer;
     [SerializeField] private GameObject projectile;
     float cooldown = 1;
-    [SerializeField] private GameObject stage3Location1;
-    [SerializeField] private GameObject stage3Location2;
-    [SerializeField] private GameObject stage3Location3;
     float randomX;
     private bool isDown = true;
     bool isWaiting = false;

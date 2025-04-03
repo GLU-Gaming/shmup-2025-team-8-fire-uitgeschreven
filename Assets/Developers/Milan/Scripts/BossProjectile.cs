@@ -21,7 +21,11 @@ public class BossProjectile : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        playerHealth.health -= damage;
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealth.health -= damage;
+            Destroy(gameObject);
+        }
+
     }
 }
