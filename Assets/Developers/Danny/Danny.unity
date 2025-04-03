@@ -572,6 +572,10 @@ PrefabInstance:
       propertyPath: harpoonShootCooldown
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 177128228462514112, guid: c17ba2b0b6e1b4c498cef3a7d1396193, type: 3}
+      propertyPath: Light
+      value: 
+      objectReference: {fileID: 229679661}
     - target: {fileID: 1020616796974628043, guid: c17ba2b0b6e1b4c498cef3a7d1396193, type: 3}
       propertyPath: healthBar
       value: 
