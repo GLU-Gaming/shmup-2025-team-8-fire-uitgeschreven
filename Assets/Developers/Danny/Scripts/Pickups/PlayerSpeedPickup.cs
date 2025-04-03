@@ -7,15 +7,15 @@ public class PlayerSpeedPickup : PickupThingies
     private void FixedUpdate()
     {
         timer += Time.deltaTime;
-        if (timer > 10 && pickedUp == true)
+        if (timer > 5 && pickedUp == true)
         {
             movementScript.speed -= 25;
             Destroy(gameObject);
         }
+        print(timer);
     }
     override protected void PickUp()
     {
-        timer = 0;
         movementScript.speed += 25;
         base.PickUp();
     }

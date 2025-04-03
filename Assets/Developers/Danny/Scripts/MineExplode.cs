@@ -34,10 +34,15 @@ public class MineExplode : MonoBehaviour
         {
 
             healthScript.health -= 35;
+        }
+        else if(other.gameObject.CompareTag("Enemy"))
+        {
+
             enemyHealthScript.health -= 90000;
         }
         else
         {
+
             Destroy(other.gameObject);
         }
     }
