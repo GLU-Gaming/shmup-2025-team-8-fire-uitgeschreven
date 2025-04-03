@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SpeedPickup : PickupThingies
 {
-    [SerializeField] private float newSpeed;
     void Start()
     {
 
@@ -18,7 +17,7 @@ public class SpeedPickup : PickupThingies
         if (collision.gameObject.CompareTag("Player"))
         {
             pickedUp = true;
-            movementScript.speed = newSpeed;
+            shootScript.lowerCooldown = true;
             PickUp();
         }
     }

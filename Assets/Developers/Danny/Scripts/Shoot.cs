@@ -25,6 +25,8 @@ public class Shoot : MonoBehaviour
     //timer
     private float timer;
     private float weaponTimer;
+    private float cooldownTimer = 5;
+    public bool lowerCooldown = false;
 
     private void Start()
     {
@@ -32,6 +34,24 @@ public class Shoot : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (lowerCooldown == true)
+        {
+            bulletShootCooldown = 0.05f;
+            harpoonShootCooldown = 0.1f;
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer <= 0)
+            {
+                lowerCooldown = false;
+                cooldownTimer = 5;
+            }
+        }
+        else
+        {
+            bulletShootCooldown = 0.2f;
+            harpoonShootCooldown = 1.5f;
+        }
+
+
         //increase the timer each frame
         timer += Time.deltaTime;
         weaponTimer += Time.deltaTime;
