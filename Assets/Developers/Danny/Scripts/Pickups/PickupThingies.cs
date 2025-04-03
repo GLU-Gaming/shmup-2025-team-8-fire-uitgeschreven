@@ -16,7 +16,8 @@ public class PickupThingies : MonoBehaviour
     }
     virtual protected void PickUp()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
+        //gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)

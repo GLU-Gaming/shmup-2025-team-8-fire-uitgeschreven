@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public float speed = 30;
     [SerializeField] private float RotationSpeed = 10f;
     private Health healthScript;
+    public bool isBoosting = false;
+    private float boostTimer = 5;
 
 
     [SerializeField] private float deeperPower;
@@ -19,6 +20,21 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (isBoosting)
+        {
+            speed = 55;
+            boostTimer -= Time.deltaTime;
+            if (boostTimer <= 0)
+            {
+                isBoosting = false;
+                boostTimer = 5;
+            }
+        }
+        else
+        {
+            speed = 30;
+        }
 
 
         if (Input.GetKey(KeyCode.W))
