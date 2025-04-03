@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using System.Collections;
 
 public class Shoot : MonoBehaviour
 {
@@ -17,6 +15,7 @@ public class Shoot : MonoBehaviour
     private Rigidbody bulletBody;
     private Rigidbody harpoonBody;
 
+    private WeaponSwitcher weaponSwitcher;
     //projectile speed and current weapon
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float harpoonSpeed;
@@ -27,6 +26,10 @@ public class Shoot : MonoBehaviour
     private float timer;
     private float weaponTimer;
 
+    private void Start()
+    {
+        weaponSwitcher = FindFirstObjectByType<WeaponSwitcher>();
+    }
     void FixedUpdate()
     {
         //increase the timer each frame
@@ -41,10 +44,12 @@ public class Shoot : MonoBehaviour
             {
                 if (currentWeapon == 0)
                 {
+                    weaponSwitcher.isHarpoonActive = false;
                     currentWeapon = 1;
                 }
                 else if (currentWeapon == 1)
                 {
+                    weaponSwitcher.isHarpoonActive = true;
                     currentWeapon = 0;
                 }
 
@@ -54,7 +59,7 @@ public class Shoot : MonoBehaviour
         }
         //is the shoot buttin pressed
         if (Input.GetKey("space"))
-        {   
+        {
             //regular bullet
             if (currentWeapon == 0)
             {
