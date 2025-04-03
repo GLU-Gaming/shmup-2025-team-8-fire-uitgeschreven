@@ -26,6 +26,10 @@ public class BossProjectile : MonoBehaviour
             playerHealth.health -= damage;
             Destroy(gameObject);
         }
+        else if (collision.gameObject.CompareTag("Projectiles"))
+        {
+            Destroy(gameObject);
+        }
 
     }
 }
