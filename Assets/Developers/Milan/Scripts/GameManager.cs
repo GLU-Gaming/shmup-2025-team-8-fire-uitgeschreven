@@ -11,16 +11,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int amountOfEnemys = 2;
     [SerializeField] private GameObject enemySpawnLocation1;
     [SerializeField] private GameObject enemySpawnLocation2;
-    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] public GameObject pauseMenu;
     [SerializeField] private GameObject miniPlayer;
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private GameObject bossSpawnLocation;
     [SerializeField] private GameObject bossHealthbar;
+    [SerializeField] private GameObject background;
     [SerializeField] private GameObject seaMine;
     [SerializeField] private GameObject seaUrchin;
     private int wavesLeft = 1;
-    private bool isGamePaused = false;
+    public bool isGamePaused = false;
     private CameraFollowsPlayer cameraFollowsPlayer;
     private GameObject RandomEnemy;
     private int wavesMax = 2;
@@ -122,15 +123,16 @@ public class GameManager : MonoBehaviour
         GameObject enemyObject;
         for (int i = 0; i < amountOfEnemys; i++)
         {
-
             RandomizeEnemyAndSpawnpoint();
             enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
             enemies.Add(enemyObject);
-
-
         }
-        Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
-        Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+        GameObject seaMineObject = Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+        GameObject seaUrchinObject = Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+
+        // Make seaMineObject a parent to seaUrchinObject
+        seaUrchinObject.transform.parent = background.transform;
+        seaMineObject.transform.parent = background.transform;
     }
 
     public void RemoveEnemy(GameObject enemy)

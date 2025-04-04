@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class Controlsmenu : MonoBehaviour
 {
+    private GameManager game;
     private void Start()
     {
-        Time.timeScale = 0f;
+        game = FindFirstObjectByType<GameManager>();
+        game.isGamePaused = true;
     }
-
+    private void Update()
+    {
+        game.pauseMenu.SetActive(false);
+    }
     public void CloseMenu()
     {
+        game.isGamePaused = false;
         gameObject.SetActive(false);
-        Time.timeScale = 1f;
+
     }
 }
