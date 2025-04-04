@@ -5,10 +5,6 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] GameObject harpoon;
     [SerializeField] GameObject minigun;
     public bool isHarpoonActive = false;
-    void Start()
-    {
-
-    }
 
     void Update()
     {
