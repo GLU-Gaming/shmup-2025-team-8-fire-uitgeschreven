@@ -15,9 +15,7 @@ public class BossFight : MonoBehaviour
     private MeshRenderer meshRenderer;
     [SerializeField] private GameObject projectile;
     float cooldown = 1;
-    float randomX;
     private bool isDown = true;
-    bool isWaiting = false;
 
     void Start()
     {
