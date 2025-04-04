@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    //particles voor collision
     [SerializeField] private GameObject collisionParticles;
 
     private GameObject instCollisionParticles;
@@ -113,5 +112,9 @@ public class Shoot : MonoBehaviour
         //reset timer
         timer = 0;
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 }
