@@ -3,6 +3,12 @@ using UnityEngine;
 public class Particles : MonoBehaviour
 {
     private float timer;
+
+    //particles voor collision
+    [SerializeField] private GameObject collisionParticles;
+
+    private GameObject instCollisionParticles;
+    private float particleTimer;
     private void Start()
     {
 
