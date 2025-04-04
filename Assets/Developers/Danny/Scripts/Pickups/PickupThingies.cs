@@ -20,9 +20,9 @@ public class PickupThingies : MonoBehaviour
         //gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("ProjectilesHarpoon"))
         {
 
             pickedUp = true;

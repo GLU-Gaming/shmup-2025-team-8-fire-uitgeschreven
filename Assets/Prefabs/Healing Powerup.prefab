@@ -97,11 +97,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7b725d3f2c87fb745bdbc499469becf1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.78
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b725d3f2c87fb745bdbc499469becf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b725d3f2c87fb745bdbc499469becf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -149,6 +149,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b725d3f2c87fb745bdbc499469becf1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 913036918391259843}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b725d3f2c87fb745bdbc499469becf1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6752600921754694961}
   m_SourcePrefab: {fileID: 100100000, guid: 7b725d3f2c87fb745bdbc499469becf1, type: 3}
 --- !u!1 &8337227134389655386 stripped
 GameObject:
@@ -170,12 +173,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.0011856616
   m_Center: {x: 0.0037500733, y: 0, z: 3.5704155e-19}
+--- !u!114 &6752600921754694961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8337227134389655386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77467f102602834786f0ca9432ec1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8716742691405909472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b725d3f2c87fb745bdbc499469becf1, type: 3}

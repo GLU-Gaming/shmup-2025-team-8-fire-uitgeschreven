@@ -4879,6 +4879,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 509602480026145165}
+  - {fileID: 1299966052529625976}
   - {fileID: 8942308840464706319}
   - {fileID: 2263299197000584291}
   - {fileID: 6516270183672509143}
@@ -5005,7 +5006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet1: {fileID: 7416120902808272360, guid: 63518156113f6de4b84b6514db2740e0, type: 3}
-  harpoon1: {fileID: 5624467821702152597, guid: 0095db2915a0dc94994df2f0e6eb4026, type: 3}
+  harpoon1: {fileID: 3579515893050559244, guid: 25a8e0ea70d640747993bcff24c9526f, type: 3}
   bulletSpawnPoint: {fileID: 8945919845183964331}
   harpoonSpawnPoint: {fileID: 8945919845183964331}
   bulletSpeed: 440
@@ -5028,6 +5029,37 @@ MonoBehaviour:
   spotLight: {fileID: 8313838827022938380}
   Light: {fileID: 0}
   background: {fileID: 2100000, guid: 56d2ba6c7e36b3b48bcee4459b69069c, type: 2}
+--- !u!1 &5757109328984276076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1299966052529625976}
+  m_Layer: 9
+  m_Name: SpawnPointHarpoon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1299966052529625976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757109328984276076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.029, y: -0.69, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1504336171158510197}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &8313838827022938380
 GameObject:
   m_ObjectHideFlags: 0

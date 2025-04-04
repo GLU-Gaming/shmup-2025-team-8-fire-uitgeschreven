@@ -118,7 +118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5862634, y: 2.4334378, z: -5.321112}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3078648357389491629}
@@ -255,6 +255,10 @@ MonoBehaviour:
   health: 3
   healthBar: {fileID: 6853434076512656693}
   healthBarCalc: 3
+  powerPrefabs:
+  - {fileID: 8337227134389655386, guid: af04a92b6ba825749ad093e9c0816f55, type: 3}
+  - {fileID: 446719940923253537, guid: 547e4ab82f3d5444a9c6f0d84cdaa0fc, type: 3}
+  - {fileID: 592799878432847187, guid: 21c6e43c46f15e443852b7a473f7ad90, type: 3}
 --- !u!1001 &7213386163735192064
 PrefabInstance:
   m_ObjectHideFlags: 0

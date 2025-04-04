@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class SpeedPickup : PickupThingies
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
+
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("ProjectilesHarpoon"))
         {
             pickedUp = true;
 
@@ -15,4 +16,6 @@ public class SpeedPickup : PickupThingies
             PickUp();
         }
     }
+
+
 }

@@ -72,8 +72,6 @@ public class Shoot : MonoBehaviour
                     weaponSwitcher.isHarpoonActive = true;
                     currentWeapon = 0;
                 }
-
-                print(currentWeapon);
             }
             weaponTimer = 0;
         }

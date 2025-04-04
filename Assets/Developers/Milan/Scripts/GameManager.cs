@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private GameObject bossSpawnLocation;
     [SerializeField] private GameObject bossHealthbar;
+    [SerializeField] private GameObject seaMine;
+    [SerializeField] private GameObject seaUrchin;
     private int wavesLeft = 1;
     private bool isGamePaused = false;
     private CameraFollowsPlayer cameraFollowsPlayer;
@@ -89,18 +91,18 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("Win Screen");
             }
         }
-        //if (miniPlayer.transform.position.y <= -2.81135)
-        //{
-        bossHealthbar.SetActive(true);
-        waveText.text = "Wave: ???";
-
-        if (hasBossSpawned == false)
+        if (miniPlayer.transform.position.y <= -2.81135)
         {
-            isWaveCleared = false;
-            SpawnBoss();
-            hasBossSpawned = true;
+            bossHealthbar.SetActive(true);
+            waveText.text = "Wave: ???";
 
-            //}
+            if (hasBossSpawned == false)
+            {
+                isWaveCleared = false;
+                SpawnBoss();
+                hasBossSpawned = true;
+
+            }
         }
 
     }
@@ -117,16 +119,18 @@ public class GameManager : MonoBehaviour
     }
     public void StartWave()
     {
-        //GameObject enemyObject;
-        //for (int i = 0; i < amountOfEnemys; i++)
-        //{
+        GameObject enemyObject;
+        for (int i = 0; i < amountOfEnemys; i++)
+        {
 
-        //    RandomizeEnemyAndSpawnpoint();
-        //    enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
-        //    enemies.Add(enemyObject);
+            RandomizeEnemyAndSpawnpoint();
+            enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
+            enemies.Add(enemyObject);
 
 
-        //}
+        }
+        Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+        Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
     }
 
     public void RemoveEnemy(GameObject enemy)
