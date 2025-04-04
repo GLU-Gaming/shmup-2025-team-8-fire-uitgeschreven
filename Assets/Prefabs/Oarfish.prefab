@@ -222,9 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d09c54ca9b3bca4cab62e18c30addf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 3
   healthBar: {fileID: 8271760740655502362}
-  healthBarCalc: 2
+  healthBarCalc: 3
   powerPrefabs:
   - {fileID: 8337227134389655386, guid: af04a92b6ba825749ad093e9c0816f55, type: 3}
   - {fileID: 446719940923253537, guid: 547e4ab82f3d5444a9c6f0d84cdaa0fc, type: 3}
