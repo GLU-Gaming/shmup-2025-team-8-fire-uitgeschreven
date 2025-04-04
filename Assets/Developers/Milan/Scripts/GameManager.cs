@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject bossPrefab;
     [SerializeField] private GameObject bossSpawnLocation;
     [SerializeField] private GameObject bossHealthbar;
+    [SerializeField] private GameObject seaMine;
+    [SerializeField] private GameObject seaUrchin;
     private int wavesLeft = 1;
     private bool isGamePaused = false;
     private CameraFollowsPlayer cameraFollowsPlayer;
@@ -127,6 +129,8 @@ public class GameManager : MonoBehaviour
 
 
         }
+        Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+        Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
     }
 
     public void RemoveEnemy(GameObject enemy)

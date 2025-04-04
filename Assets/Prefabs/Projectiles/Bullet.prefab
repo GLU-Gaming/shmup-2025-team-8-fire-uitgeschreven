@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5846268395431447921}
   m_Layer: 6
   m_Name: Bullet
-  m_TagString: Projectiles
+  m_TagString: ProjectilesMinigun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9df460ce6a179e9429e8ba0def6f6e59, type: 2}
+  - {fileID: 2100000, guid: 4b39edd8c3d38de438c570d3487540fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

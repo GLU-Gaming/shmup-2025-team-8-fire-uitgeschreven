@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Obstacle
   - Projectiles
+  - ProjectilesMinigun
+  - ProjectilesHarpoon
   layers:
   - Default
   - TransparentFX
@@ -23,8 +25,6 @@ TagManager:
   - 
   - Boss
   - ProjectilesBoss
-  - 
-  - 
   - 
   - 
   - 
