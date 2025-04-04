@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private EnemyHealth enemyHealthScript;
     private Health healthScript;
     [SerializeField] private float damage = 1;
+
     void Start()
     {
         game = FindFirstObjectByType<GameManager>();
@@ -41,6 +42,7 @@ public class Enemy : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Projectiles"))
         {
+
             enemyHealthScript.TakeDamage();
             Destroy(collision.gameObject);
         }
