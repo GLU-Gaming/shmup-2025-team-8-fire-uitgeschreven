@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossFight : MonoBehaviour
@@ -11,7 +10,7 @@ public class BossFight : MonoBehaviour
     private Health playerHealth;
     private BossHealth bossHealth;
     [SerializeField] private int stage = 1;
-    [SerializeField] private List<Material> materials;
+    //[SerializeField] private List<Material> materials;
     private MeshRenderer meshRenderer;
     [SerializeField] private GameObject projectile;
     float cooldown = 1;
@@ -37,7 +36,7 @@ public class BossFight : MonoBehaviour
         lowerWall.transform.position = new Vector3(lowerWall.transform.position.x, -5.4f, lowerWall.transform.position.z);
         if (stage == 1)
         {
-            meshRenderer.material = materials[0];
+            //meshRenderer.material = materials[0];
 
             if (transform.position.x <= -20f)
             {
@@ -75,8 +74,9 @@ public class BossFight : MonoBehaviour
 #endif
         if (stage == 2)
         {
+            transform.rotation = new Quaternion(0, 0, 0, 0);
             GameObject bulletClone;
-            meshRenderer.material = materials[1];
+            //meshRenderer.material = materials[1];
 
             cooldown -= Time.deltaTime;
             if (cooldown <= 0)
@@ -111,7 +111,7 @@ public class BossFight : MonoBehaviour
 
         if (stage == 3)
         {
-            meshRenderer.material = materials[2];
+            //meshRenderer.material = materials[2];
 
             if (transform.position.y <= -2.25f)
             {
@@ -161,9 +161,14 @@ public class BossFight : MonoBehaviour
             playerHealth.TakeDamage(40);
             bossHealth.TakeDamage(20);
         }
-        if (collision.gameObject.CompareTag("Projectiles"))
+        if (collision.gameObject.CompareTag("ProjectilesMinigun"))
         {
             bossHealth.TakeDamage(50);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("ProjectilesHarpoon"))
+        {
+            bossHealth.TakeDamage(100);
             Destroy(collision.gameObject);
         }
     }

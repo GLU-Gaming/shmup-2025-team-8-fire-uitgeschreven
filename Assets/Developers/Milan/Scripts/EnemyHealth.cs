@@ -8,11 +8,13 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] Image healthBar;
     [SerializeField] float healthBarCalc;
     private GameManager game;
+    private Score score;
     private int randomNumber;
     [SerializeField] List<GameObject> powerPrefabs;
     void Start()
     {
         game = FindFirstObjectByType<GameManager>();
+        score = FindFirstObjectByType<Score>();
     }
 
     void Update()
@@ -22,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage()
     {
+        score.amountScore += 30;
         health--;
         if (health <= 0)
         {
@@ -32,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
                 Instantiate(powerPrefabs[randomPrefab], transform.position, powerPrefabs[randomPrefab].transform.rotation);
             }
             game.RemoveEnemy(gameObject);
+            score.amountScore += 50;
             Destroy(gameObject);
         }
     }

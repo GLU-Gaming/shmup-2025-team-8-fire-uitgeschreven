@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject spawnLocation;
-    [SerializeField] List<GameObject> enemies;
+    [SerializeField] public List<GameObject> enemies;
     [SerializeField] List<GameObject> enemyPrefabs;
     [SerializeField] private int amountOfEnemys = 2;
     [SerializeField] private GameObject enemySpawnLocation1;
@@ -28,13 +28,15 @@ public class GameManager : MonoBehaviour
     public bool isBossFightStart = false;
     public bool isWaveCleared = false;
     public int minEnemy = 1;
-    public int maxEnemy = 5;
+    public int maxEnemy = 3;
     public float celebrationTimer;
     public bool isCelebrating = false;
     public bool hasBossSpawned = false;
+    private Controlsmenu controlsmenu;
 
     void Start()
     {
+        controlsmenu = FindFirstObjectByType<Controlsmenu>();
         StartWave();
         cameraFollowsPlayer = FindFirstObjectByType<CameraFollowsPlayer>();
     }
@@ -72,7 +74,10 @@ public class GameManager : MonoBehaviour
         if (isGamePaused == true)
         {
             Time.timeScale = 0;
-            pauseMenu.SetActive(true);
+            if (controlsmenu.isControlsOpen == false)
+            {
+                pauseMenu.SetActive(true);
+            }
         }
         else
         {
@@ -130,7 +135,6 @@ public class GameManager : MonoBehaviour
         GameObject seaMineObject = Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
         GameObject seaUrchinObject = Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
 
-        // Make seaMineObject a parent to seaUrchinObject
         seaUrchinObject.transform.parent = background.transform;
         seaMineObject.transform.parent = background.transform;
     }

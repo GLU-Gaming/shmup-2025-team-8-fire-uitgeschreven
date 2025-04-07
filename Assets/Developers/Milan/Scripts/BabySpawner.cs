@@ -5,9 +5,10 @@ public class BabySpawner : MonoBehaviour
     [SerializeField] private GameObject babyPrefab;
     [SerializeField] private GameObject spawnLocation;
     private float spawnTimer = 4f;
+    private GameManager game;
     void Start()
     {
-
+        game = FindFirstObjectByType<GameManager>();
     }
 
     void Update()
@@ -22,6 +23,7 @@ public class BabySpawner : MonoBehaviour
 
     void SpawnBaby()
     {
-        Instantiate(babyPrefab, spawnLocation.transform.position, Quaternion.identity);
+        GameObject babyClone = Instantiate(babyPrefab, spawnLocation.transform.position, Quaternion.identity);
+        game.enemies.Add(babyClone);
     }
 }
