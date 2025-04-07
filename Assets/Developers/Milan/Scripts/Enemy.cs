@@ -9,9 +9,11 @@ public class Enemy : MonoBehaviour
     private EnemyHealth enemyHealthScript;
     private Health healthScript;
     [SerializeField] private float damage = 1;
+    private GameObject langeBitch;
 
     void Start()
     {
+        langeBitch = GameObject.Find("Lange bitch spawn");
         game = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindFirstObjectByType<PlayerMovement>().gameObject;
@@ -23,11 +25,19 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //rb.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
+        if (gameObject.name != "lange bitch(Clone)")
+        {
 
-        Vector3 direction = player.transform.position - transform.position;
-        rb.linearVelocity = direction.normalized * speed;
+            Vector3 direction = player.transform.position - transform.position;
+            rb.linearVelocity = direction.normalized * speed;
 
-        rb.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+            rb.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
+        else
+        {
+            Vector3 direction = new Vector3(langeBitch.transform.position.x, transform.position.y, transform.position.z) - transform.position;
+            rb.linearVelocity = direction.normalized * speed;
+        }
 
     }
 
