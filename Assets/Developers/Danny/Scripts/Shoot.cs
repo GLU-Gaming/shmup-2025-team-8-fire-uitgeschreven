@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    [SerializeField] private GameObject collisionParticles;
-
-    private GameObject instCollisionParticles;
-    private float particleTimer;
     //projectiles and spawnpoints
     [SerializeField] private GameObject bullet1;
     [SerializeField] private GameObject harpoon1;
@@ -57,7 +53,6 @@ public class Shoot : MonoBehaviour
 
 
         //increase the timer each frame
-        particleTimer += Time.deltaTime;
         timer += Time.deltaTime;
         weaponTimer += Time.deltaTime;
 
@@ -113,8 +108,5 @@ public class Shoot : MonoBehaviour
         timer = 0;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
+
 }

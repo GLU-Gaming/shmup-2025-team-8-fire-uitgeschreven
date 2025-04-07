@@ -4,8 +4,6 @@ public class Particles : MonoBehaviour
 {
     private float timer;
     [SerializeField] private GameObject collisionParticles;
-
-    private float particleTimer;
     private void Start()
     {
 
@@ -14,7 +12,7 @@ public class Particles : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (particleTimer >= 0.2)
+        if (timer >= 0.2)
         {
             Destroy(gameObject);
         }
