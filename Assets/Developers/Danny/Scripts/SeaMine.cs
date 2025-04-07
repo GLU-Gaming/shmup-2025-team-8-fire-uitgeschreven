@@ -19,4 +19,5 @@ public class SeaMine : MonoBehaviour
             hasExploded = true;
             Destroy(gameObject);
     }
+
 }
