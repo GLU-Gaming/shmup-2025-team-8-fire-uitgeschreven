@@ -97,18 +97,18 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("Win Screen");
             }
         }
-        if (miniPlayer.transform.position.y <= -2.81135)
+        //if (miniPlayer.transform.position.y <= -2.81135)
+        //{
+        bossHealthbar.SetActive(true);
+        waveText.text = "Wave: ???";
+
+        if (hasBossSpawned == false)
         {
-            bossHealthbar.SetActive(true);
-            waveText.text = "Wave: ???";
+            isWaveCleared = false;
+            SpawnBoss();
+            hasBossSpawned = true;
 
-            if (hasBossSpawned == false)
-            {
-                isWaveCleared = false;
-                SpawnBoss();
-                hasBossSpawned = true;
-
-            }
+            //}
         }
 
     }
@@ -125,18 +125,18 @@ public class GameManager : MonoBehaviour
     }
     public void StartWave()
     {
-        GameObject enemyObject;
-        for (int i = 0; i < amountOfEnemys; i++)
-        {
-            RandomizeEnemyAndSpawnpoint();
-            enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
-            enemies.Add(enemyObject);
-        }
-        GameObject seaMineObject = Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
-        GameObject seaUrchinObject = Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+        //GameObject enemyObject;
+        //for (int i = 0; i < amountOfEnemys; i++)
+        //{
+        //    RandomizeEnemyAndSpawnpoint();
+        //    enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
+        //    enemies.Add(enemyObject);
+        //}
+        //GameObject seaMineObject = Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+        //GameObject seaUrchinObject = Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
 
-        seaUrchinObject.transform.parent = background.transform;
-        seaMineObject.transform.parent = background.transform;
+        //seaUrchinObject.transform.parent = background.transform;
+        //seaMineObject.transform.parent = background.transform;
     }
 
     public void RemoveEnemy(GameObject enemy)
