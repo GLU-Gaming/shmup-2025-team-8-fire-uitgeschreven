@@ -18,6 +18,6 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadScene("Game Over");
         }
-        healthBar.fillAmount = health / 200f;
+        healthBar.fillAmount = health / 300f;
     }
 }
