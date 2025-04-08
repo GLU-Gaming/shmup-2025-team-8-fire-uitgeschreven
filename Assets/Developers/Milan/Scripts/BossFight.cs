@@ -50,12 +50,12 @@ public class BossFight : MonoBehaviour
 
             if (goLeft == true && upperWall.transform.rotation == Quaternion.Euler(0, 0, 0))
             {
-                rb.position = new Vector3(transform.position.x - 0.35f, 3.3f, transform.position.z);
+                rb.position = new Vector3(transform.position.x - 0.4f, 3.3f, transform.position.z);
                 rb.rotation = Quaternion.Euler(0, 0, 0);
             }
             else if (goLeft == false && upperWall.transform.rotation == Quaternion.Euler(0, 0, 0))
             {
-                rb.position = new Vector3(transform.position.x + 0.35f, -1.77f, transform.position.z);
+                rb.position = new Vector3(transform.position.x + 0.4f, -1.77f, transform.position.z);
                 rb.rotation = Quaternion.Euler(0, 180, 0);
             }
             if (bossHealth.health <= 3750)
@@ -141,7 +141,7 @@ public class BossFight : MonoBehaviour
     private void NextStage()
     {
         bool doneMoving = false;
-        transform.position = Vector3.Lerp(transform.position, new Vector3(8.79f, 1, 0), 0.01f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(8.79f, 1, 0), 0.005f);
         if (transform.position.x >= 8.39f && transform.position.y >= 0.9f && transform.position.y <= 1.1f)
         {
             doneMoving = true;
