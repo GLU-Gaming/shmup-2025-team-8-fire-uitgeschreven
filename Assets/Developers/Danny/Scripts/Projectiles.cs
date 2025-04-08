@@ -5,8 +5,10 @@ public class Projectiles : MonoBehaviour
     private float timer;
 
     [SerializeField] private GameObject collisionParticles;
+    [SerializeField] private GameObject collisionParticles2;
 
     private GameObject instCollisionParticles;
+    private GameObject instCollisionParticles2;
     private float particleTimer;
     private void FixedUpdate()
     {
