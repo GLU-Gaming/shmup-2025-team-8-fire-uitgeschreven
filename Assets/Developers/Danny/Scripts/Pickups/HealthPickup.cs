@@ -5,7 +5,7 @@ public class HealthPickup : PickupThingies
 {
     override protected void PickUp()
     {
-        healthScript.health += 25;
+        healthScript.health += 100;
         base.PickUp();
         Destroy(gameObject);
     }
