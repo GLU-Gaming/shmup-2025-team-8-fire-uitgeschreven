@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2637761481355725405}
   - component: {fileID: 655278472359594789}
   m_Layer: 0
-  m_Name: CollisionParticles
+  m_Name: CollisionParticles2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4790,7 +4790,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8494a6ee9e7a5ec4786b5afade94b7f3, type: 2}
+  - {fileID: 2100000, guid: 3856707b4479aec4c9d1bb8f398c57e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4855,4 +4855,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8797dc6f2d06b45bc22ee41fb4c734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionParticles: {fileID: 0}

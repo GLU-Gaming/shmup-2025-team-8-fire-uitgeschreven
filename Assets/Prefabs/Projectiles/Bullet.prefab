@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionParticles: {fileID: 3648333158372775623, guid: 3866d3ec4622dfc4b864da6daafda3f2, type: 3}
+  collisionParticles2: {fileID: 3648333158372775623, guid: c7803c8f14b08984f949aac80d012612, type: 3}
 --- !u!54 &3638867388102463144
 Rigidbody:
   m_ObjectHideFlags: 0
