@@ -132,11 +132,11 @@ public class GameManager : MonoBehaviour
             enemyObject = Instantiate(RandomEnemy, spawnLocation.transform.position, spawnLocation.transform.rotation);
             enemies.Add(enemyObject);
         }
-        GameObject seaMineObject = Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
-        GameObject seaUrchinObject = Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+        //GameObject seaMineObject = Instantiate(seaMine, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
+        //GameObject seaUrchinObject = Instantiate(seaUrchin, new Vector3(Random.Range(-11f, 10f), Random.Range(7f, -4f), 0), Quaternion.identity);
 
-        seaUrchinObject.transform.parent = background.transform;
-        seaMineObject.transform.parent = background.transform;
+        //seaUrchinObject.transform.parent = background.transform;
+        //seaMineObject.transform.parent = background.transform;
     }
 
     public void RemoveEnemy(GameObject enemy)

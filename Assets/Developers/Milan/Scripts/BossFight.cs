@@ -15,13 +15,14 @@ public class BossFight : MonoBehaviour
     [SerializeField] private GameObject projectile;
     float cooldown = 1;
     private bool isDown = true;
+    private float wallTimer = 0.5f;
 
     void Start()
     {
         player = GameObject.Find("Player");
         rb = GetComponent<Rigidbody>();
-        upperWall = GameObject.Find("UpperWall");
-        lowerWall = GameObject.Find("LowerWall");
+        upperWall = GameObject.Find("UpperWall1");
+        lowerWall = GameObject.Find("LowerWall1");
         playerHealth = FindFirstObjectByType<Health>();
         bossHealth = GetComponent<BossHealth>();
         meshRenderer = GetComponent<MeshRenderer>();
@@ -30,10 +31,16 @@ public class BossFight : MonoBehaviour
 
     void Update()
     {
-        upperWall.transform.rotation = Quaternion.Slerp(upperWall.transform.rotation, Quaternion.Euler(0, 0, 0), 0.03f);
-        upperWall.transform.position = new Vector3(upperWall.transform.position.x, 7.30f, upperWall.transform.position.z);
-        lowerWall.transform.rotation = Quaternion.Slerp(lowerWall.transform.rotation, Quaternion.Euler(0, 0, 0), 0.03f);
-        lowerWall.transform.position = new Vector3(lowerWall.transform.position.x, -5.4f, lowerWall.transform.position.z);
+        wallTimer -= Time.deltaTime;
+        upperWall.transform.rotation = Quaternion.Slerp(upperWall.transform.rotation, Quaternion.Euler(0, 0, 20), 0.03f);
+        lowerWall.transform.rotation = Quaternion.Slerp(lowerWall.transform.rotation, Quaternion.Euler(0, 0, 20), 0.03f);
+        if (wallTimer <= 0)
+        {
+            lowerWall.transform.position = new Vector3(-13, 2.5f, lowerWall.transform.position.z);
+            upperWall.transform.position = new Vector3(-15.2f, 1f, upperWall.transform.position.z);
+
+            wallTimer = 0.5f;
+        }
         if (stage == 1)
         {
             //meshRenderer.material = materials[0];
@@ -48,12 +55,12 @@ public class BossFight : MonoBehaviour
                 goLeft = true;
             }
 
-            if (goLeft == true && upperWall.transform.rotation == Quaternion.Euler(0, 0, 0))
+            if (goLeft == true)
             {
                 rb.position = new Vector3(transform.position.x - 0.4f, 3.3f, transform.position.z);
                 rb.rotation = Quaternion.Euler(0, 0, 0);
             }
-            else if (goLeft == false && upperWall.transform.rotation == Quaternion.Euler(0, 0, 0))
+            else if (goLeft == false)
             {
                 rb.position = new Vector3(transform.position.x + 0.4f, -1.77f, transform.position.z);
                 rb.rotation = Quaternion.Euler(0, 180, 0);
@@ -141,7 +148,7 @@ public class BossFight : MonoBehaviour
     private void NextStage()
     {
         bool doneMoving = false;
-        transform.position = Vector3.Lerp(transform.position, new Vector3(8.79f, 1, 0), 0.005f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(8.79f, 1, 0), 0.01f);
         if (transform.position.x >= 8.39f && transform.position.y >= 0.9f && transform.position.y <= 1.1f)
         {
             doneMoving = true;
