@@ -13,7 +13,7 @@ public class CameraFollowsPlayer : MonoBehaviour
     private GameManager game;
 
 
-    //[SerializeField] private GameObject backgroundCubes;
+    [SerializeField] private GameObject backgroundCubes;
     private PlayerMovement playerMovement;
 
     void Start()
@@ -47,7 +47,7 @@ public class CameraFollowsPlayer : MonoBehaviour
 
             playerMovement.GoDeeper();
 
-            //backgroundCubes.transform.position = new Vector3(backgroundCubes.transform.position.x - speed * Time.deltaTime, backgroundCubes.transform.position.y - -speed * Time.deltaTime, backgroundCubes.transform.position.z);
+            backgroundCubes.transform.position = new Vector3(backgroundCubes.transform.position.x - speed * Time.deltaTime, backgroundCubes.transform.position.y - -speed * Time.deltaTime, backgroundCubes.transform.position.z);
             if (Timer <= 0 && game.hasBossSpawned == false)
             {
                 game.isWaveCleared = false;

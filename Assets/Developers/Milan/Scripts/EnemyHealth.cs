@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] public int health = 3;
     [SerializeField] Image healthBar;
     [SerializeField] float healthBarCalc;
+    [SerializeField] GameObject bubbles;
     private GameManager game;
     private Score score;
     private int randomNumber;
@@ -15,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     {
         game = FindFirstObjectByType<GameManager>();
         score = FindFirstObjectByType<Score>();
+        bubbles = GameObject.Find("bubbles");
     }
 
     void Update()
@@ -32,7 +34,8 @@ public class EnemyHealth : MonoBehaviour
             randomNumber = Random.Range(0, 4);
             if (randomNumber == 3)
             {
-                Instantiate(powerPrefabs[randomPrefab], transform.position, powerPrefabs[randomPrefab].transform.rotation);
+                GameObject powerup = Instantiate(powerPrefabs[randomPrefab], transform.position, powerPrefabs[randomPrefab].transform.rotation);
+                powerup.transform.parent = bubbles.transform;
             }
             game.RemoveEnemy(gameObject);
             score.amountScore += 50;
