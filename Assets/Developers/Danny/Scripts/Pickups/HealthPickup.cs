@@ -11,7 +11,7 @@ public class HealthPickup : PickupThingies
         healthScript.health += 100;
         if (healthScript.health >= 300)
         {
-            healthScript.health = 300
+            healthScript.health = 300;
         }
         base.PickUp();
         Destroy(gameObject);
